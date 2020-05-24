@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="./styles/base.css">
 
+    <script src="./node_modules/chart.js/dist/Chart.js"></script>
 
 
   </head>
@@ -21,5 +22,91 @@
     <h1> Telemetry </h1>
     
 
+
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </body>
+
+
+  
+
+
+
+  <script>
+
+    var dataArray = [ 12,14,15,17,20 ];
+
+
+    var data = {
+				labels:dataArray,
+				datasets: [{
+					label: [ "Altitude"],
+					data: dataArray,
+					fill: false,
+        }]
+    }
+
+    var	options =  {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Rocket Altitude Chart'
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Month'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Value'
+						}
+					}]
+				}
+			}
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options
+    });
+
+    
+    setInterval(function(){ 
+      var arrayLength = dataArray.length;
+      var value = Math.floor(Math.random() * 10) + dataArray[arrayLength-1] ;  //Add a random value to end of array
+      dataArray.push(value);
+      myLineChart.update(); }
+    , 
+    3000);
+
+  </script>
 </html>

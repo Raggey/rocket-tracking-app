@@ -3,8 +3,8 @@ const { app, BrowserWindow } = require('electron')
 function createWindow () {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 1200,
-    height: 600,
+    width: 1400,
+    height: 1224,
     icon: __dirname + './media/rocket.png',
 
     webPreferences: {
