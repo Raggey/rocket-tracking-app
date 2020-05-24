@@ -3,7 +3,7 @@ Tracking app made in Electron JS
 
 
 
-Features:
+<p> Features:
 
 
 Todo:
@@ -21,3 +21,4 @@ Read OpenRocket metadata
   Display image of Rocket
   Display Simulation Details, CP,CG, height, etc.
   
+  </p>
