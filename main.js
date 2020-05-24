@@ -5,10 +5,13 @@ function createWindow () {
   const win = new BrowserWindow({
     width: 1200,
     height: 600,
+    icon: __dirname + './media/rocket.png',
+
     webPreferences: {
       nodeIntegration: true
     }
   })
+
 
   // and load the index.html of the app.
   win.loadFile('index.html')
